@@ -1,0 +1,24 @@
+package assignSeleniumWeb;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class ClassLocator {
+	public static void main(String[] args) throws Throwable {
+		System.setProperty("webdriver.chrome.driver", "C:\\Software\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		//to maximize the window
+		driver.manage().window().maximize();
+		driver.get("https://github.com/login");
+		WebElement email = driver.findElement(By.id("login_field"));
+		email.sendKeys("charilaxmi1@gmail.com");
+		WebElement pass = driver.findElement(By.name("password"));
+		pass.sendKeys("lakshmi_2003");
+		//log-in button
+		driver.findElement(By.name("commit")).click();
+		//adds delay for 10 seconds
+		Thread.sleep(10000);
+		//to close the browser
+		driver.quit();
+	}
+}
